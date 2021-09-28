@@ -1,3 +1,4 @@
+// Middlewares are functions that take a http.HandlerFunc, does soemthing and return a http.HandlerFunc
 package main
 
 import (
@@ -7,6 +8,7 @@ import (
 	"time"
 )
 
+// CheckAuth is a middleware that checks if the user is authenticated
 func CheckAuth() Middleware {
 	return func(next http.HandlerFunc) http.HandlerFunc {
 
@@ -22,6 +24,7 @@ func CheckAuth() Middleware {
 	}
 }
 
+// Logging is a middleware that logs the request
 func Logging() Middleware {
 	return func(next http.HandlerFunc) http.HandlerFunc {
 		return func(w http.ResponseWriter, r *http.Request) {

@@ -9,6 +9,7 @@ type Middleware func(http.HandlerFunc) http.HandlerFunc
 
 type MetaData interface{}
 
+// User is a struct, that has a method to jsonify itself
 type User struct {
 	Name  string `json:"name"`
 	Email string `json:"email"`
